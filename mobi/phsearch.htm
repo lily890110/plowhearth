@@ -1,0 +1,126 @@
+<function type="Include" file="html5_header.htm" />
+
+<script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/js/mobi.gsa.js"></script>
+
+    <!-- Global Header Include End -->
+    <div class="pg-type pg-search">
+        <h1>Search  <function type="custom.hasContent" field="Request.tsearch">
+                <template> for: <span id="query"><field type="Request.tsearch" /></span></template>
+               
+            </function>
+        </h1>
+         <p class="selecttypes" style=""></p>
+		 <p class="itemtotals"></p>
+        <function type="Custom.Paging.HasPaging">
+            <template>
+        <p id="search-paging">showing &lt;field type="Paging.StartNumber" /&gt; - &lt;field type="Paging.EndNumber" /&gt; of &lt;field type="Paging.TotalNumber" /&gt; results | <a href="javascript:page('ALL');">View All</a></p>
+            </template>
+        </function>
+        <div class="clr"></div>
+		<form id="pageSort" name="pageSort" method="post" action="#">
+			<input type="hidden" id="sort" name="sort" value='&lt;field type="Request.sort" /&gt;' />
+            <input type="hidden" id="page" name="page" value='&lt;field type="Request.page" /&gt;' />
+			<div style="display:inline-block;width:90%;margin-bottom:10px;">
+				<a id="add_cart1" class="search-filter"   data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width: '300', height: '450'}">Filter</a> 
+				<select class="sorterdrop-search" name="sorterdrop">
+                    <option value="">Sort By</option>
+                    <option value="BPD">Price High -> Low</option>
+                    <option value="BPA">Price Low -> High</option>
+                    <option value="RD">Star Rating</option>
+                    <option selected="selected" value="RPA">Recommended</option>
+                </select>
+             </div>
+        </form>
+    </div>
+<div id="cat_body">
+    <div id="right-content" class="subsub-content">
+        <input type="hidden" id="searchTerm" name="searchTerm" value='&lt;field type="Request.tSearch" /&gt;' />
+        <div id="did-you-mean">
+
+        </div>
+        <div class="prod-list">
+            <div >
+              
+            	<!--lily -->
+				<div  id="all_ul_list1">
+					<ul id="events-list" data-am-widget="gallery" class="subsub-products am-gallery am-avg-sm-2 am-gallery-default" data-am-gallery="{  }">
+					</ul>
+				</div>
+				<!--end lily -->
+            </div>
+			<div class="message_last_page"></div>
+        </div>
+
+    </div>
+
+    
+
+    <div class="clr"></div>
+
+</div>  
+
+
+
+
+<div class="am-modal-search am-modal-no-btn div_hei_auto" tabindex="-1" id="doc-modal-2" >
+    <div class="am-modal-dialog" >
+        <div class="am-modal-hd am-modal-bd-bg" >
+            <a href="javascript: void(0)" class="am-close am-close-spin am-close-fl" data-am-modal-close="">&times;</a>
+			<a href="javascript: void(0)" class="am-done" data-am-modal-close="">Done</a>
+        </div>
+        <div class="am-modal-bd" >
+        	<dl class="filter_type">
+				<dt class="filter_dt"><h2> Rating<span class="Rating_s">All</span></h2></dt>
+       			<dd class="filter_select"> 
+					<div id="filterblocks_rat1">
+						<h3>Rating</h3>
+						<ul>
+         					<li>
+         				        <div class="filt_ratings" data-name="Rating_Average" data-val="0"></div>
+								<span>All</span>
+         				    </li>
+         				    <li >
+         				        <div class="filt_ratings" data-name="Rating_Average" data-val="4"></div>
+         				        <span>4 Stars &amp; up</span>
+         				    </li>
+         				    <li >
+         				        <div class="filt_ratings" data-name="Rating_Average" data-val="3" ></div>
+         				        <span >3 Stars &amp; up</span>
+         				    </li>
+         				    <li>
+         				        <div  class="filt_ratings" data-name="Rating_Average" data-val="2" ></div>
+         				        <span>2 Stars &amp; up</span>
+         				    </li>
+         				    <li >
+         				        <div class="filt_ratings" data-name="Rating_Average" data-val="1" ></div>
+         				        <span >1 Star &amp; up</span>
+         				    </li>
+         				</ul>
+       				 </div> 
+  				</dd>
+			</dl>
+		
+        	<div id="filterwrap">
+        		
+        	</div> 
+        	<div class="left_nav_filters1">
+				<dl class="filter_type">
+					<div class="price-from" style="display:none">0</div>
+					<div class="price-to" style="display:none">10000</div>
+					<dt class="filter_dt"><h2> Price<span class="price_s">All</span></h2></dt>
+       				<dd class="filter_select"> 
+					<h3>Price</h3>
+						<ul class="price_range price" > 
+							
+  						</ul>
+  					</dd>
+				</dl>
+			</div>
+        </div>
+    </div>
+</div>  
+
+
+
+
+<function type="Include" file="html5_footer.htm" />
