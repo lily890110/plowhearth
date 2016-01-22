@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title><field type="Meta.Title" /></title>
+    <field type="Meta.Description" />
+    <field type="Meta.Keywords" />
+    <field type="Page.CanonicalTag" /> 
+    <meta name="robots" content="index,follow" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+    <script>
+        var
+                PH  =   {
+                    ajax_price_switch   : 'on',
+                    modal_email_switch  : 'on',
+                    geo_location_switch : 'on',
+                    personal_rec_switch : 'on',
+                    product_rec_switch  : {
+                        detail: 	'on',
+                        modalcart: 	'on',
+                        checkout: 	'on'
+                    },
+                    sort_by_switch 		: 'on',
+                    filter_switch 		: 'on',
+                    sayt_switch 		: 'on',
+                    chat_switch 		: 'on',
+                    ssc_open_sunday     : false
+                },
+                product_number      = '',
+                partNo1 		    = 0,
+                pageCat 		    = 0,
+                pageSubCat 		    = 0,
+                pageSubSubCat 	    = 0,
+                hasVideo 		    = 0,
+                version 		    = 1,
+                rawem 			    = '',
+                google_tag_params   = '',
+                phw_page_tracker    = '',
+                rawprod             = ''
+                ;
+
+        <function type="Custom.HasContent" field="Product.part_no">
+        <template>
+        product_number = '<field type="Product.part_no" />';
+        rawprod = '<field type="Product.part_no" />';
+        </template>
+        </function>
+
+        <function type="Custom.HasContent" field="Product.part_no">
+        <template>
+        product_number = '<function type="Custom.Replace" original="Product.part_no" find="'" replace="&#39;" regEx="false" ></function>';
+        </template>
+        </function>
+
+        <function type="Customer.LoggedIn">
+        <template>
+        rawem = '<function type="Custom.Replace" original="Customer.email" find="'" replace="&#39;" regEx="false" ></function>';
+        </template>
+        </function>
+
+        <function type="Custom.HasContent" field="Product.alternate_part_no">
+        <template>
+        partNo1 = '<function type="Custom.Replace" original="Product.alternate_part_no" find="'" replace="&#39;" regEx="false" ></function>';
+        </template>
+        </function>
+
+        <function type="Custom.HasContent" field="Category.Major_Dept_Name">
+        <template>
+        pageCat = '<function type="Custom.Replace" original="Category.Major_Dept_Name" find="'" replace="&#39;" regEx="false" ></function>';
+        </template>
+        </function>
+
+        <function type="Custom.HasContent" field="SubCategory.Parent.Subcategory.Dept_alt">
+        <template>
+        pageSubCat = '<function type="Custom.Replace" original="SubCategory.Parent.Subcategory.Dept_alt" find="'" replace="&#39;" regEx="false" ></function>';
+        </template>
+        <elsetemplate>
+        <function type="Custom.HasContent" field="SubCategory.Dept_alt">
+        <template>
+        pageSubCat = '<function type="Custom.Replace" original="SubCategory.Dept_alt" find="'" replace="&#39;" regEx="false" ></function>';
+        </template>
+        </function>
+        </elsetemplate>
+        </function>
+
+        <function type="Custom.HasContent" field="SubCategory.Parent.Subcategory.Dept_alt">
+        <template>
+        pageSubSubCat = '<function type="Custom.Replace" original="SubCategory.Dept_alt" find="'" replace="&#39;" regEx="false" ></function>';
+        </template>
+        </function>
+
+        <function type="Custom.HasContent" field="Product.xtra2">
+        <template>
+        hasVideo = 1;
+        </template>
+        </function>
+    </script>
+
+    <function type="Custom.Contains" Value1='&lt;field type="Request.URL.Domain" /&gt;' Value2="plowhearth.shopvisible.com">
+        <template>
+            <link rel="stylesheet" type="text/css" href="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/css/mobi.css" />
+            <link rel="stylesheet" type="text/css" href="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/css/amazeui.min.css" />
+            <link rel="stylesheet" type="text/css" href="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/css/plowhearth.amazeui.css" />
+            <link rel="stylesheet" type="text/css" href="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/css/phw.mobi.css" />
+            <link rel="stylesheet" type="text/css" href="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/css/phw.search.css" />
+
+            <!--<link rel="stylesheet" type="text/css" href="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/min/css.min.css?timeStamp=&lt;field type=&quot;Website.SiteCompressTime&quot; /&gt;" />-->
+
+            <script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/js/jquery.min.js"></script>
+            <script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/js/amazeui.min.js"></script>
+            <script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/js/plowhearth.amazeui.min.js"></script>
+            <script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/js/scripts.min.js"></script>
+            <script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/js/modernizr-2.0.6.min.js"></script>
+
+            <script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/js/phw.mobi.js"></script>
+            <script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/js/phw.search.js"></script>
+
+            <!--<script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/min/js.min.js?timeStamp=&lt;field type=&quot;Website.SiteCompressTime&quot; /&gt;" ></script>-->
+        </template>
+        <elsetemplate>
+            <link rel="stylesheet" type="text/css" href="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/css/min/css.min.css?timeStamp=&lt;field type=&quot;Website.SiteCompressTime&quot; /&gt;" />
+            <script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/min/js.min.js?timeStamp=&lt;field type=&quot;Website.SiteCompressTime&quot; /&gt;"></script>
+
+        </elsetemplate>
+    </function>
+
+
+
+    <field type="FeaturedContent.Mobile.Additional Meta Tags" />
+  
+<link rel="stylesheet" type="text/css" href="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/css/phw.holiday.supplemental.css?timeStamp=&lt;field type=&quot;Website.SiteCompressTime&quot; /&gt;" />
+<script type="text/javascript" src="&lt;field type=&quot;Url.CdnLink&quot; /&gt;mobi/assets/js/phw.holiday.supplemental.js?timestamp=&lt;field type=&quot;Website.SiteCompressTime&quot; /&gt;"></script>
+  
+</head>
+  
+<body class="">
+<function type="Custom.Compare" Value1="mobi/" Value2="Request.URL.PageName" compareType="string" compare="notequal">
+    <template>
+        <field type="FeaturedContent.Mobile.Eyebrow Banner" />
+    </template>
+    <elsetemplate>
+        <function type="Custom.HasContent" field="FeaturedContent.Mobile.Eyebrow Banner on Homepage">
+            <template>
+                <field type="FeaturedContent.Mobile.Eyebrow Banner" />
+            </template>
+        </function>
+    </elsetemplate>
+</function>
+
+    <div class="">
+
+    <!-- Global Header Include Begin -->
+
+<header class="am-topbar am-topbar-fixed-top">
+  <div class="am-container">
+  	<div class="am-u-lg-5 am-u-sm-3" style="padding:0;line-height:46px;">
+      <a href="#am-leftmenu" data-am-offcanvas=""><img width='40' src='&lt;field type="Url.CdnLink" /&gt;mobi/assets/img/menu.png' /></a>
+  	</div>
+  	<div class="am-u-lg-2 am-u-sm-6 am-text-center" style="padding:0;line-height:46px;">
+      <a href="/mobi/"><img  src='&lt;field type="Url.CdnLink" /&gt;mobi/assets/img/logo.png' /></a>
+  	</div>
+  	<div class="am-u-lg-5 am-u-sm-3 am-text-right" style="padding:0;">
+      <a href="javascript:void(0);" id="get-top">
+        <img data-am-smooth-scroll="{position:0}" width='30' height="24" style="margin-top:1rem;cursor:pointer;" src='&lt;field type="Url.CdnLink" /&gt;mobi/assets/img/search_btn.png' />
+      </a>
+      <a class="cart" href="/mobi/cart.aspx">
+        <img width='30' height="24" style="margin-top:1.2rem;margin-right:10px" src='&lt;field type="Url.CdnLink" /&gt;mobi/assets/img/cart_btn.png' />
+<span class="cart_num"><field type="Cart.Quantity.Sum" /></span>
+      </a>
+  	</div>
+  </div>
+</header>
+<form class="search_form" name="inline-form" method="get" action="/mobi/phsearch.htm">
+<div class="am-input-group top_search">
+  <span class="am-input-group-label"><img width='23'  src='&lt;field type="Url.CdnLink" /&gt;mobi/assets/img/search_btn.png' /></span>
+  <input class="inline-search" type="text" style="" name="tSearch" placeholder="Search..." value="" results="5" autosave="tsearch" />
+</div>
+</form>
+      
+      
+  
+<div id="am-leftmenu" class="am-offcanvas">
+  <div class="am-offcanvas-bar">
+    <div class="am-offcanvas-content">
+        <cache cacheName="PHW Mobi Nav">
+          <function type="Category.Loop" containsProducts="true" sortOrder="Major_Dept_Order,Major_Dept_Name">
+            <template>
+              <div class="parent">
+                <a class="first_nav" data-am-collapse="" href='#&lt;field type="Category.Major_Dept_Id" /&gt;'>
+                  <field type="Category.Major_Dept_Name" />
+                </a>
+            <nav id="nav0">
+              <ul id='&lt;field type="Category.Major_Dept_Id" /&gt;' class="am-nav am-collapse am-cate-2">
+                  <function type="Category.SubCategory.Loop" containsProducts="true" sortOrder="DeptOrder,Dept_Alt">
+                    <template>
+                <li>
+                      <a href='#&lt;field type="SubCategory.Dept_id" /&gt;' class="second_nav" data-am-collapse="">
+                        <function type="Custom.HasContent" field="SubCategory.dept_customdescription">
+                          <template><field type="SubCategory.dept_customdescription" /></template>
+                          <elsetemplate><field type="SubCategory.Dept_alt" /></elsetemplate>
+                        </function>
+                      </a>
+                  <nav id="nav2">
+                    <ul id='&lt;field type="SubCategory.Dept_id" /&gt;' class="am-nav am-collapse am-cate-3">
+                        <function type="SubCategory.SubCategory.Loop" containsProducts="true" sortOrder="DeptOrder,Dept_Alt" modConditional="11">
+                          <template>
+                          <li>
+                            <a title='&lt;field type="SubCategory.Dept_alt" /&gt;' href='//&lt;field type="Url.RootLink" /&gt;&lt;field type="SubCategory.SubCategoryUrl" /&gt;'>
+                              <function type="Custom.HasContent" field="SubCategory.dept_customdescription">
+                                <template><field type="SubCategory.dept_customdescription" />&nbsp;</template>
+                                <elsetemplate><field type="SubCategory.Dept_alt" />&nbsp;</elsetemplate>
+                              </function>
+                            </a>
+                          </li>
+                          </template>
+                        </function>
+                    </ul>
+                  </nav>
+                    </li>
+                    </template>
+                  </function>
+              </ul>
+            </nav>
+              </div>
+            </template>
+          </function>
+        </cache>
+    </div>
+  </div>
+</div>
